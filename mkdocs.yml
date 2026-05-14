@@ -1,0 +1,54 @@
+site_name: KronoSync ERP & POS
+site_description: Documentación oficial de KronoSync — Sistema ERP y Punto de Venta para el comercio chileno
+site_author: KronoSync
+copyright: "&copy; 2026 KronoSync — Prisma Systems"
+
+site_favicon: img/favicon.ico
+
+extra_javascript:
+  - js/zoom.js
+
+theme:
+  name: readthedocs
+  locale: es
+  include_homepage_in_sidebar: true
+  sticky_navigation: true
+  collapse_navigation: true
+  navigation_depth: 3
+  titles_only: false
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Inicio: index.md
+  - Primeros pasos:
+      - Instalación: primeros-pasos/instalacion.md
+      - Configuración inicial: primeros-pasos/configuracion.md
+      - Tu primera venta: primeros-pasos/primera-venta.md
+  - Módulos del sistema:
+      - Dashboard (Inicio): modulos/dashboard.md
+      - Punto de Venta: modulos/ventas.md
+      - Inventario: modulos/inventario.md
+      - Clientes: modulos/clientes.md
+      - Reportes: modulos/reportes.md
+      - Alertas: modulos/alertas.md
+      - Compras (Planificado): modulos/compras.md
+  - Administración:
+      - Gestión de Usuarios: modulos/usuarios.md
+      - Ajustes del Negocio: primeros-pasos/configuracion.md
+  - Preguntas frecuentes: faq.md
+  - Novedades: novedades.md
