@@ -78,4 +78,4 @@ Usa la **barra lateral izquierda** para navegar entre secciones. También puedes
 
 ## Versión actual
 
-**v1.5.1** — Licencia Privada
+**v1.5.1** — Licencia Privada — Desarrollado por **Prisma Systems**, fundada por Jose Cornejo

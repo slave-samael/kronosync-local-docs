@@ -4,10 +4,11 @@
 
 **KronoSync ERP Docs** es el sitio de documentación de usuario del ERP KronoSync, generado con MkDocs. Contiene manuales, tutoriales, referencia de módulos y preguntas frecuentes para usuarios finales del sistema.
 
-- **Versión:** v1.0.0
-- **Licencia:** Privada
+- **Versión:** v1.5.1
+- **Licencia:** Privada — Desarrollado por **Prisma Systems**, fundada por Jose Cornejo
 - **Idioma:** Español (CL) — TODO el contenido está en español
 - **URL local:** `http://127.0.0.1:8000/`
+- **URL producción:** [slave-samael.github.io/kronosync-local-docs](https://slave-samael.github.io/kronosync-local-docs/)
 
 ## Stack Tecnológico
 
@@ -24,17 +25,37 @@
 ```
 KronoSync-loca-document/
 ├── AGENTS.md                  ← Este archivo
+├── README.md                  ← Descripción del proyecto y enlace a GitHub Pages
+├── .gitignore                 ← Exclusiones: site/, venv/, __pycache__/, .DS_Store
 ├── mkdocs.yml                 ← Configuración del sitio (nav, theme, extensions)
 ├── docs/                      ← Todo el contenido fuente
 │   ├── index.md               ← Portada de bienvenida
-│   ├── faq.md                 ← Preguntas frecuentes (13 secciones, 34 Q&A)
+│   ├── faq.md                 ← Preguntas frecuentes (13 secciones, 36 Q&A)
 │   ├── novedades.md           ← Changelog y roadmap
 │   ├── img/                   ← Imágenes del sitio
 │   │   ├── favicon.ico        ← Favicon del sitio (25 KB)
 │   │   ├── logo_kronosync.png ← Logo del ERP (153 KB, 280px en portada)
 │   │   ├── screenshoot/       ← Capturas de pantalla de la app real
-│   │   │   └── inicio.png     ← Pantalla principal de KronoSync (68 KB)
+│   │   │   ├── inicio.png     ← Pantalla principal de KronoSync (68 KB)
+│   │   │   ├── login.png      ← Pantalla de inicio de sesión
+│   │   │   ├── carrito.png    ← Punto de Venta — carrito y panel de cobro
+│   │   │   ├── venta.png      ← Modal de pago — finalizar venta
+│   │   │   ├── boleta.png     ← Boleta PDF generada
+│   │   │   ├── producto-buscar.png ← Búsqueda de productos
+│   │   │   ├── datos-negocio.png   ← Configuración del negocio
+│   │   │   ├── inventario.png      ← Tabla de inventario
+│   │   │   ├── inventario-producto.png ← Formulario de producto
+│   │   │   ├── clientes.png        ← Tabla de clientes
+│   │   │   ├── clientes-formulario.png ← Formulario de cliente
+│   │   │   ├── reportes.png        ← Tabla de historial de ventas
+│   │   │   ├── v-financiera.png    ← Gráfico financiero dashboard
+│   │   │   ├── ticket.png          ← Detalle de ticket
+│   │   │   ├── alertas.png         ← Centro de Alertas
+│   │   │   ├── usuarios.png        ← Tabla de usuarios
+│   │   │   └── usuarios-nuevo.png  ← Formulario nuevo usuario
 │   │   └── README.md          ← Inventario de imágenes requeridas
+│   ├── js/                    ← Scripts JavaScript
+│   │   └── zoom.js            ← Lightbox para zoom al hacer clic en imágenes
 │   ├── primeros-pasos/        ← Guías de onboarding (3 archivos)
 │   │   ├── instalacion.md
 │   │   ├── configuracion.md
@@ -48,6 +69,8 @@ KronoSync-loca-document/
 │       ├── alertas.md
 │       ├── compras.md
 │       └── usuarios.md
+├── .github/workflows/         ← CI/CD con GitHub Actions
+│   └── mkdocs.yml             ← Build automático y deploy a GitHub Pages
 ├── site/                      ← Build de salida (NO COMMITEAR)
 └── venv/                      ← Entorno virtual Python (NO COMMITEAR)
 ```
@@ -180,7 +203,47 @@ Los enlaces entre páginas usan rutas relativas desde el archivo actual:
 9. **No usar rutas absolutas** — todos los paths relativos a `docs/`.
 10. **No usar HTML complejo** — preferir Markdown puro. Solo usar `<img>` para imágenes con tamaño controlado.
 
-## Comandos
+## CI/CD (GitHub Actions)
+
+El proyecto usa **GitHub Actions** para build automático y deploy a GitHub Pages.
+
+### Workflow
+
+Archivo: `.github/workflows/mkdocs.yml`
+
+- **Trigger:** push a `main`
+- **Runner:** `ubuntu-latest`, Python 3.13
+- **Pasos:**
+  1. Checkout del repositorio
+  2. Instalar dependencias (`pip install mkdocs pymdown-extensions`)
+  3. `mkdocs build --clean`
+  4. Deploy a GitHub Pages via `actions/deploy-pages`
+
+### Nota sobre `--strict`
+
+El flag `--strict` fue removido del workflow porque el config `site_favicon` genera un warning benigno que MkDocs no reconoce como válido, pero el tema Read the Docs sí lo procesa correctamente. Sin `--strict`, el build es exitoso con ese único warning.
+
+## Versionado
+
+- **Tags semánticos:** `vX.Y.Z` sobre la rama `main`
+- **Changelog:** documentado en `docs/novedades.md`
+- **Versión actual:** sincronizada en `index.md`, `novedades.md` y `AGENTS.md`
+
+```bash
+# Crear un tag de versión
+git tag -a v1.5.1 -m "v1.5.1 — Descripción de cambios"
+git push origin v1.5.1
+```
+
+## Actualizar el sitio en producción
+
+Cada push a `main` dispara el workflow automáticamente. El sitio se reconstruye y despliega en ~30 segundos.
+
+```bash
+git add -A
+git commit -m "Descripción de los cambios"
+git push origin main
+```
 
 ```bash
 # Iniciar servidor de desarrollo (live reload)
