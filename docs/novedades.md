@@ -2,7 +2,7 @@
 
 ---
 
-## v1.0.0 — Lanzamiento inicial (Mayo 2026)
+## v1.5.1 — Lanzamiento inicial (Mayo 2026)
 
 Primera versión estable de KronoSync ERP & POS.
 

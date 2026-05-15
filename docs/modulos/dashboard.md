@@ -81,7 +81,7 @@ Un gráfico circular que compara visualmente:
 
 Este gráfico se genera con Matplotlib y se renderiza dentro de la interfaz.
 
-![Gráfico de torta financiero](../img/screenshoot/reportes.png){: style="width: 700px; height: auto;"}
+![Gráfico de torta financiero](../img/screenshoot/v-financiera.png){: style="width: 700px; height: auto;"}
 
 ---
 
