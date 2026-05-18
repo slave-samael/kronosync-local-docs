@@ -23,6 +23,7 @@ KronoSync es una aplicación de escritorio que integra en un solo lugar la opera
 | Dashboard (Inicio) | Estadísticas del día, alertas unificadas, panel financiero con gráficos | [Ver](modulos/dashboard.md) |
 | Punto de Venta (POS) | Carrito de compras, cobro con múltiples métodos de pago, boleta PDF 80mm | [Ver](modulos/ventas.md) |
 | Inventario | Control de stock, sistema FEFO, lotes, alertas de vencimiento | [Ver](modulos/inventario.md) |
+| Lotes | Gestión visual de lotes con fechas de vencimiento y control de stock | [Ver](modulos/lotes.md) |
 | Clientes | Registro y búsqueda de clientes, validación de RUT chileno (Módulo 11) | [Ver](modulos/clientes.md) |
 | Reportes | Historial de ventas con filtros, exportación Excel contable con desglose de IVA | [Ver](modulos/reportes.md) |
 | Alertas | Centro de inteligencia de stock: productos bajo mínimo y próximos a vencer | [Ver](modulos/alertas.md) |

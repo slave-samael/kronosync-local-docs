@@ -2,34 +2,26 @@
 
 ---
 
-## v1.5.1 — Lanzamiento inicial (Mayo 2026)
+## v1.6.0 — Módulo de Lotes y mejoras (Mayo 2026)
 
-Primera versión estable de KronoSync ERP & POS.
+### Nuevo módulo
 
-### Funcionalidades incluidas
+- **Gestión de Lotes**: nuevo módulo visual para administrar lotes por producto. Permite crear, editar y eliminar lotes con fechas de vencimiento, validando que la cantidad total nunca exceda el stock disponible. Incluye indicador visual de disponibilidad (🟢 disponible / 🟡 asignado / 🔴 sobre-asignado).
 
-- **Punto de Venta (POS)** con escaneo de código de barras, venta por volumen, múltiples métodos de pago (efectivo, tarjeta, transferencia) y cálculo automático de vuelto
-- **Inventario con sistema FEFO** (First Expire, First Out) para productos perecederos, gestión de lotes y control de stock en tiempo real
-- **Validación de RUT chileno** mediante algoritmo Módulo 11, con registro automático de clientes desde la caja
-- **Boletas PDF** en formato ticketera térmica (80mm) con desglose de IVA (19%)
-- **Dashboard financiero** con capital en bodega, flujo de caja diario, ganancia neta y gráfico de torta (Matplotlib)
-- **Reportes contables** en Excel con filtros por año/mes, desglose de IVA y totales
-- **Centro de Alertas** para stock bajo y vencimientos, con exportación BI a Excel
-- **Gestión de usuarios** con 4 roles (ADMIN, DUENO, ADMINISTRADOR, CAJERO) y control de acceso granular
-- **Cronómetro de sesión** que registra horas de ingreso y minutos trabajados por empleado
-- **Respaldo de base de datos** en 1 clic desde la configuración
-- **Auto-sanación de BD**: el sistema reconstruye tablas SQLite automáticamente si detecta anomalías
-- **Distribución portable**: ejecutable único para Windows 10/11, sin instalación ni internet requerido
+### Mejoras en módulos existentes
 
-### Stack técnico
+- **Punto de Venta**: selección visual de lote durante la venta. El cajero puede elegir manualmente de qué lote descontar o usar FEFO automático. Nueva columna "Lote" en la tabla del carrito.
+- **Inventario**: botón "Ver Lotes" en cada producto para acceder a la gestión visual de lotes directamente desde la tabla de inventario.
+- **Dashboard**: panel financiero ahora se muestra en pestañas separadas para ADMIN: "Vista Operativa" y "Resumen Financiero (Gerencia)".
+- **Reportes**: exportación Excel ahora incluye columnas de Monto Neto e IVA (19%) junto al Total. Ventas anuladas aparecen en rojo y tachadas. Fila de totales al final.
+- **Configuración**: restauración de backup desde la interfaz gráfica. Incluye verificación de integridad SQLite, backup de emergencia automático y barra de progreso.
 
-- Python 3.13 + CustomTkinter (interfaz oscura/clara)
-- SQLite 3 (base de datos local)
-- ReportLab (generación PDF)
-- OpenPyXL (exportación Excel)
-- Matplotlib (gráficos financieros)
-- Bcrypt (hash de contraseñas)
-- PyInstaller (compilación a .exe portable)
+### Mejoras técnicas
+
+- Esquema de lotes ampliado con `codigo_lote` personalizado
+- Tabla de ventas ampliada: `estado`, `usuario`, `cliente_nombre`, `cliente_rut`, `metodo_pago`, `tipo_documento`, `numero_documento`
+- Tabla de clientes ampliada: `fecha_registro`, `direccion`, `giro`, `tipo_cliente` (OCASIONAL, FRECUENTE, MAYORISTA)
+- Seeder expandido: 57 productos automotrices, 12 clientes, 9 usuarios, 50 ventas históricas con flags parametrizables
 
 ---
 
@@ -55,7 +47,6 @@ Cuando se publique una nueva versión:
 | Cierre de caja | Planificado | Apertura y cierre de caja diario con arqueo de efectivo |
 | Notificaciones por correo | En estudio | Envío automático de alertas críticas de stock al administrador |
 | Múltiples bodegas | En estudio | Soporte para sucursales con inventario independiente |
-| Restauración de backup desde UI | Planificado | Interfaz gráfica para seleccionar y restaurar respaldos |
 | Cifrado de base de datos | En estudio | Cifrado opcional del archivo `inventario.db` para entornos sensibles |
 
 ¿Tienes una idea o sugerencia? Comunícala al administrador del sistema o al equipo de desarrollo.

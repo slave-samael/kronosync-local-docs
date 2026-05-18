@@ -61,10 +61,21 @@ Desde esta misma pantalla puedes crear una copia de seguridad de toda tu informa
 2. Elige una ubicación segura (recomendado: una carpeta externa o pendrive).
 3. El archivo se guardará con el nombre `Respaldo_ERP_Core_DD_MM_YYYY_HHMM.db`.
 
-!!! warning "Importante"
-    Realiza respaldos periódicos. La base de datos contiene toda la información de tu negocio (productos, ventas, clientes, usuarios). Ante cualquier falla del equipo, el respaldo es tu única protección.
+## Restauración de backup
 
-!!! tip "Frecuencia recomendada"
+Si necesitas recuperar una copia de seguridad anterior:
+
+1. Haz clic en **Restaurar Backup**.
+2. Selecciona el archivo `.db` de respaldo.
+3. El sistema verifica automáticamente la integridad del archivo con `PRAGMA integrity_check`.
+4. Se crea un **backup de emergencia** de la base de datos actual antes de restaurar.
+5. Se muestra una barra de progreso durante la importación.
+6. Al finalizar, la aplicación se cierra automáticamente. Al reabrir, los datos restaurados estarán activos.
+
+!!! danger "La restauración reemplaza todos los datos actuales"
+    Al restaurar un backup, toda la información actual se sobrescribe. El backup de emergencia (`pre_restore_...`) se guarda automáticamente por si necesitas revertir.
+
+!!! warning "Frecuencia recomendada"
     Haz un respaldo al final de cada día. Guarda el archivo en un pendrive o disco externo, no solo en el mismo equipo.
 
 ---

@@ -59,7 +59,14 @@ Las alertas de **caducidad** se generan automáticamente al cargar el Dashboard,
 
 ## Panel financiero (solo ADMIN)
 
-El Dashboard incluye una sección exclusiva para el rol ADMIN con análisis de rentabilidad:
+El Dashboard incluye una sección exclusiva para el rol ADMIN con análisis de rentabilidad, organizada en **dos pestañas**:
+
+| Pestaña | Contenido |
+|---------|-----------|
+| **Vista Operativa** | Tarjetas de estadísticas (productos, alertas, ventas del día), últimas 5 ventas, alertas unificadas |
+| **Resumen Financiero (Gerencia)** | Capital en bodega, flujo de caja, ganancia neta, gráfico de torta Matplotlib |
+
+📷 *[Dashboard con pestañas ADMIN — pendiente de subir]*
 
 ### Indicadores financieros
 

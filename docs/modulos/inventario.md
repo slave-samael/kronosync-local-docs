@@ -29,6 +29,7 @@ El módulo de Inventario te permite gestionar todo el catálogo de productos, co
 | Tabla de productos | 7 columnas: Código, Nombre, Categoría, Stock, Precio Venta, Vencimiento, Precio Compra |
 | Botón Nuevo | Abre el formulario de alta de producto (ADMIN/DUENO) |
 | Botón Exportar | Genera plantilla Excel para inventario físico |
+| Botón Ver Lotes | Abre la ventana de gestión de lotes del producto seleccionado |
 
 ---
 
@@ -157,6 +158,20 @@ Cuando el stock de un producto cae por debajo de su **stock mínimo**, se regist
 Los productos perecederos cuya fecha de vencimiento está dentro de los próximos **N días** (configurable en Ajustes del Negocio) generan alertas.
 
 Ambos tipos de alertas se consultan en el [Centro de Alertas](alertas.md) (botón naranja en la barra lateral).
+
+---
+
+## Gestión de lotes
+
+Desde la tabla de inventario, puedes acceder a la gestión visual de lotes de cualquier producto:
+
+1. Selecciona un producto en la tabla.
+2. Haz clic en **Ver Lotes**.
+3. Se abre la ventana de [Gestión de Lotes](lotes.md) con:
+    - Cabecera del producto (nombre, código, stock total, precio)
+    - Indicador de disponibilidad (🟢/🟡/🔴)
+    - Tabla de lotes con código, cantidad y fecha de vencimiento
+    - Botones para agregar, editar y eliminar lotes
 
 !!! info "Generación automática de alertas"
     Las alertas de vencimiento se generan automáticamente cada vez que cargas el Dashboard (Inicio), basándose en el parámetro de días configurado. Las alertas de stock bajo se generan en tiempo real durante las ventas.

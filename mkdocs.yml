@@ -43,6 +43,7 @@ nav:
       - Dashboard (Inicio): modulos/dashboard.md
       - Punto de Venta: modulos/ventas.md
       - Inventario: modulos/inventario.md
+      - Lotes: modulos/lotes.md
       - Clientes: modulos/clientes.md
       - Reportes: modulos/reportes.md
       - Alertas: modulos/alertas.md

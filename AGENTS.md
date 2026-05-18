@@ -4,8 +4,8 @@
 
 **KronoSync ERP Docs** es el sitio de documentación de usuario del ERP KronoSync, generado con MkDocs. Contiene manuales, tutoriales, referencia de módulos y preguntas frecuentes para usuarios finales del sistema.
 
-- **Versión:** v1.0.0
-- **Licencia:** Privada
+- **Versión:** v1.6.0
+- **Licencia:** Privada — Desarrollado por **Prisma Systems**, fundada por Jose Cornejo
 - **Idioma:** Español (CL) — TODO el contenido está en español
 - **URL local:** `http://127.0.0.1:8000/`
 
@@ -24,30 +24,53 @@
 ```
 KronoSync-loca-document/
 ├── AGENTS.md                  ← Este archivo
+├── README.md                  ← Descripción del proyecto y enlace a GitHub Pages
 ├── mkdocs.yml                 ← Configuración del sitio (nav, theme, extensions)
 ├── docs/                      ← Todo el contenido fuente
 │   ├── index.md               ← Portada de bienvenida
-│   ├── faq.md                 ← Preguntas frecuentes (13 secciones, 34 Q&A)
+│   ├── faq.md                 ← Preguntas frecuentes (13 secciones, 36 Q&A)
 │   ├── novedades.md           ← Changelog y roadmap
 │   ├── img/                   ← Imágenes del sitio
 │   │   ├── favicon.ico        ← Favicon del sitio (25 KB)
 │   │   ├── logo_kronosync.png ← Logo del ERP (153 KB, 280px en portada)
 │   │   ├── screenshoot/       ← Capturas de pantalla de la app real
-│   │   │   └── inicio.png     ← Pantalla principal de KronoSync (68 KB)
+│   │   │   ├── inicio.png     ← Pantalla principal de KronoSync
+│   │   │   ├── login.png      ← Pantalla de inicio de sesión
+│   │   │   ├── carrito.png    ← Punto de Venta — carrito y panel de cobro
+│   │   │   ├── venta.png      ← Modal de pago — finalizar venta
+│   │   │   ├── boleta.png     ← Boleta PDF generada
+│   │   │   ├── producto-buscar.png ← Búsqueda de productos
+│   │   │   ├── datos-negocio.png   ← Configuración del negocio
+│   │   │   ├── inventario.png      ← Tabla de inventario
+│   │   │   ├── inventario-producto.png ← Formulario de producto
+│   │   │   ├── lotes.png           ← Gestión de lotes (v1.6.0)
+│   │   │   ├── clientes.png        ← Tabla de clientes
+│   │   │   ├── clientes-formulario.png ← Formulario de cliente
+│   │   │   ├── reportes.png        ← Tabla de historial de ventas
+│   │   │   ├── v-financiera.png    ← Gráfico financiero dashboard
+│   │   │   ├── ticket.png          ← Detalle de ticket
+│   │   │   ├── alertas.png         ← Centro de Alertas
+│   │   │   ├── usuarios.png        ← Tabla de usuarios
+│   │   │   └── usuarios-nuevo.png  ← Formulario nuevo usuario
 │   │   └── README.md          ← Inventario de imágenes requeridas
+│   ├── js/                    ← Scripts JavaScript
+│   │   └── zoom.js            ← Lightbox para zoom al hacer clic en imágenes
 │   ├── primeros-pasos/        ← Guías de onboarding (3 archivos)
 │   │   ├── instalacion.md
 │   │   ├── configuracion.md
 │   │   └── primera-venta.md
-│   └── modulos/               ← Documentación por módulo (8 archivos)
+│   └── modulos/               ← Documentación por módulo (9 archivos)
 │       ├── dashboard.md
 │       ├── ventas.md
 │       ├── inventario.md
+│       ├── lotes.md              ← Nuevo en v1.6.0
 │       ├── clientes.md
 │       ├── reportes.md
 │       ├── alertas.md
 │       ├── compras.md
 │       └── usuarios.md
+├── .github/workflows/         ← CI/CD con GitHub Actions
+│   └── mkdocs.yml             ← Build automático y deploy a GitHub Pages
 ├── site/                      ← Build de salida (NO COMMITEAR)
 └── venv/                      ← Entorno virtual Python (NO COMMITEAR)
 ```
@@ -67,7 +90,7 @@ KronoSync-loca-document/
 nav:
   - Inicio: index.md
   - Primeros pasos:         # 3 archivos
-  - Módulos del sistema:    # 7 archivos
+  - Módulos del sistema:    # 8 archivos
   - Administración:         # 2 archivos
   - Preguntas frecuentes: faq.md
   - Novedades: novedades.md

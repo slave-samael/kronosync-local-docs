@@ -98,11 +98,11 @@ El botón **Exportar** genera un archivo Excel con todas las ventas visibles seg
 |---------|-------------|
 | N° Ticket | Número de venta |
 | Fecha y Hora | Timestamp completo |
-| Vendedor | Usuario |
+| Vendedor | Usuario que realizó la venta |
 | Estado | COMPLETADA o ANULADA |
-| Monto Neto | Valor sin IVA |
-| IVA (19%) | Impuesto calculado |
-| Total Venta | Monto total con IVA |
+| Monto Neto | Valor sin IVA (formato moneda) |
+| IVA (19%) | Impuesto calculado automáticamente |
+| Total Venta | Monto total con IVA (formato moneda) |
 
 Al final del archivo se incluye una **fila de totales** con la suma de Neto, IVA y Total de todas las ventas válidas (excluye ANULADAS).
 

@@ -56,9 +56,10 @@ def procesar_escaneo(self, event):
 Cada vez que presionas **Enter** con un código en el campo, el sistema:
 1. Busca el producto por código exacto.
 2. Verifica que haya stock disponible.
-3. Si ya está en el carrito, aumenta la cantidad en 1.
-4. Si no está, lo agrega con cantidad 1.
-5. Si no hay stock, muestra advertencia y notifica al administrador.
+3. Si el producto tiene **múltiples lotes**, abre el modal de selección.
+4. Si ya está en el carrito, aumenta la cantidad en 1.
+5. Si no está, lo agrega con cantidad 1.
+6. Si no hay stock, muestra advertencia y notifica al administrador.
 
 !!! warning "Sin stock disponible"
     Si intentas agregar más unidades de las que existen en bodega, verás el mensaje "Quiebre de stock evitado" y la acción se cancela. El sistema envía una notificación al administrador.
@@ -176,7 +177,25 @@ def _ejecutar_cobro_final(self, rut_cli, metodo_pago):
 
 ---
 
-## Anulación de tickets
+## Selección de lote durante la venta
+
+Cuando un producto tiene **múltiples lotes** registrados, el sistema abre un modal de selección al agregarlo al carrito:
+
+📷 *[Modal de selección de lote — pendiente de subir]*
+
+| Opción | Comportamiento |
+|--------|---------------|
+| **Seleccionar lote manual** | Eliges de qué lote específico descontar. Útil si necesitas priorizar un lote próximo a vencer. |
+| **Usar FEFO automático** | El sistema descuenta automáticamente del lote que vence primero. |
+
+### Columna "Lote" en el carrito
+
+La tabla del carrito ahora incluye una columna **Lote** que muestra de qué lote se descontará cada producto. Si el producto se agregó con FEFO automático, muestra "FEFO".
+
+!!! info "Productos sin lotes"
+    Los productos que no tienen lotes múltiples (un solo lote por defecto) no muestran el modal de selección. El descuento es directo.
+
+---
 
 Solo los roles **ADMIN**, **DUENO** y **ADMINISTRADOR** pueden anular ventas.
 

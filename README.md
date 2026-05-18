@@ -1,6 +1,6 @@
 # KronoSync ERP & POS — Documentación
 
-Sitio de documentación oficial de **KronoSync**, el sistema ERP y Punto de Venta para el comercio chileno.
+Sitio de documentación oficial de **KronoSync v1.6.0**, el sistema ERP y Punto de Venta para el comercio chileno. Desarrollado por **Prisma Systems**, fundada por Jose Cornejo.
 
 ## Visitar
 
@@ -9,10 +9,18 @@ Sitio de documentación oficial de **KronoSync**, el sistema ERP y Punto de Vent
 ## Contenido
 
 - **Primeros pasos** — Instalación, configuración y tu primera venta
-- **Módulos del sistema** — Dashboard, Ventas, Inventario, Clientes, Reportes, Alertas
+- **Módulos del sistema** — Dashboard, Ventas, Inventario, Lotes, Clientes, Reportes, Alertas
 - **Administración** — Gestión de usuarios y configuración
-- **FAQ** — 34 preguntas frecuentes con soluciones
+- **FAQ** — Preguntas frecuentes con soluciones
 - **Novedades** — Changelog y próximas funcionalidades
+
+## Novedades v1.6.0
+
+- 🆕 **Módulo de Lotes**: gestión visual de lotes por producto con validación de stock
+- 🛒 **POS mejorado**: selección manual de lote durante la venta
+- 📊 **Dashboard**: pestañas separadas (Operativa / Financiera) para ADMIN
+- 📥 **Reportes Excel**: columnas de Neto e IVA (19%) para el contador
+- 💾 **Restauración de backup**: desde la interfaz gráfica, con verificación de integridad
 
 ## Tecnología
 
